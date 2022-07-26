@@ -1,0 +1,37 @@
+body{
+    font-family: consolas;
+    font-size: 45px;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #333438;
+    color: #646669;
+}
+
+
+.contentWrapper{
+    height: 90%;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border : 1px solid black; */
+}
+
+.textArea {
+    margin: 20%;
+    /* border : 1px solid black; */
+    padding: 10px
+}
+
+.textArea>input{
+    /* display: none; */
+    position: absolute;
+}
+
+.correct {
+    color: white;
+}
+
+.wrong {
+    color:#ea4b4c;
+}
