@@ -5,6 +5,7 @@ body{
     overflow: hidden;
     background-color: #333438;
     color: #646669;
+    z-index: 1;
 }
 
 
@@ -23,6 +24,11 @@ body{
 
 .textArea>input{
     position: absolute;
+}
+
+.hiddenInput{
+    z-index: -10;
+    opacity: 0;
 }
 
 .correct {
@@ -102,3 +108,12 @@ body{
     color: white;
     border: none;
 }
+
+.activeLetter {
+    text-decoration: underline;
+}
+
+#randomText{
+    cursor: pointer;
+}
+

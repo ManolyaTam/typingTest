@@ -1,39 +1,42 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Typing Test</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div class="contentWrapper">
-            <div class="textArea" id="textArea">
-                <p id="randomText"><span class="correct">a</span><span class="wrong">b</span><span>c</span></p>
-                <input oninput="checkCorrect(this.value)" type="text" name="userInput" id="userInput">
-            </div>
-        </div>
-        <div class="popup" id="popup">
-            <div class="popupContent">
-                    <h4>Your Score</h4>
 
-                    <div class="stats">
-                        <div class="results">
-                            <p class="resultTitle">wpm</p>
-                            <p>32</p>
-                        </div>
-                        <div class="results">
-                            <p class="resultTitle">acc</p>
-                            <p>88%</p>
-                        </div>
-                        <div class="results">
-                            <p  class="resultTitle">time</p>
-                            <p>60s</p>
-                        </div>
-                    </div>
+<head>
+    <title>Typing Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="contentWrapper">
+        <div class="textArea" id="textArea">
+            <p id="randomText"><span class="correct">a</span><span class="wrong">b</span><span>c</span></p>
+            <input oninput="checkCorrect(this.value)" type="text" name="userInput" id="userInput" class="hiddenInput">
+        </div>
+    </div>
+    <div class="popup" id="popup">
+        <div class="popupContent">
+            <h4>Your Score</h4>
+
+            <div class="stats">
+                <div class="results">
+                    <p class="resultTitle">wpm</p>
+                    <p id="wpm">32</p>
+                </div>
+                <div class="results">
+                    <p class="resultTitle">acc</p>
+                    <p id="acc">88%</p>
+                </div>
+                <div class="results">
+                    <p class="resultTitle">time</p>
+                    <p id="time">60s</p>
+                </div>
+            </div>
             <div class="restartBtn">
                 <button id="restartBtn" onclick="location.reload();">restart</button>
             </div>
-            </div>
         </div>
-        <script src="app.js"></script>
-    </body>
+    </div>
+    <script src="app.js"></script>
+</body>
+
 </html>
