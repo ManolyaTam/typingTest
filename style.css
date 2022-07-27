@@ -36,7 +36,8 @@ body{
 }
 
 .wrong {
-    color:#ea4b4c;
+    background-color: #ed3b3c54;
+    color: white;
 }
 
 .popup {
@@ -126,4 +127,3 @@ body{
 #randomText{
     cursor: pointer;
 }
-
