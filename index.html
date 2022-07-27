@@ -9,6 +9,11 @@
 <body>
     <div class="contentWrapper">
         <div class="textArea" id="textArea">
+            <div class="popup focus" id="focus">
+                <div class="blur" id="blur">
+                    <p>click here to focus</p>
+                </div>
+            </div>
             <p id="randomText"><span class="correct">a</span><span class="wrong">b</span><span>c</span></p>
             <input oninput="checkCorrect(this.value)" type="text" name="userInput" id="userInput" class="hiddenInput">
         </div>

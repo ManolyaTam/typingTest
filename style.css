@@ -53,6 +53,16 @@ body{
     align-items: center;
 }
 
+.focus{
+    display: flex;
+    background-color: rgb(51 52 56 / 82%);
+}
+.blur{
+    color: #e2b714;
+    font-size: 40px;
+    
+}
+
 .popupContent {
     background-color: #2c2e31;
     color: black;

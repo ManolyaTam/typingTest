@@ -1,7 +1,10 @@
 let randomTextElement = document.getElementById('randomText');
 let userInput = document.getElementById('userInput');
+let userInputQ = document.querySelector('#userInput');
 let letter = document.getElementsByClassName('letter');
 let popup = document.getElementById('popup');
+let focus = document.getElementById('focus');
+let blur = document.getElementById('blur');
 let acc = document.getElementById('acc');
 let timeElement = document.getElementById('time');
 let wpm = document.getElementById('wpm');
@@ -50,6 +53,25 @@ getRandText = () => {
     return randomText;
 }
 
+
+// sound
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+      this.sound.play();
+    }
+    this.stop = function(){
+      this.sound.pause();
+    }
+  }
+
+
+
 randomTextElement.innerHTML = ``;
 randomTextElement.innerHTML = getRandText();
 
@@ -58,6 +80,8 @@ let end;
 let time;
 let wrong = 0;
 checkCorrect = (inputText) => {
+    // keySound.stop();
+    // keySound.play();/////////////////////////////////needs work
     let i = inputText.length - 1;
     if (i === 0) {
         start = Date.now();
@@ -93,13 +117,27 @@ checkDone = (inputText) => {
         minutes = time/60
         console.log('game over');
         wpm.innerHTML = Math.floor(max_number_words/(minutes));
-        acc.innerHTML = `${Math.floor(((chars.length - wrong)/chars.length) * 100)}%` ; // wrong chars / chars.length
+        acc.innerHTML = `${Math.floor(((chars.length - wrong)/chars.length) * 100)}%` ; 
         timeElement.innerHTML = (time) + 's';
         popup.style.display = 'flex';
     }
 }
 
-randomTextElement.addEventListener("click", () => { userInput.focus() })
+blur.addEventListener("click", () => { 
+    focus.style.display = "none";
+    userInput.focus();
+    keySound = new sound("audiomass-output.mp3");
+});
 
+randomTextElement.addEventListener("click", () => { 
+    focus.style.display = "none";
+    userInput.focus();
+    keySound = new sound("audiomass-output.mp3");
+});
 
-//
+setInterval(() => {
+    console.log((userInputQ === document.activeElement? 'in focus': "click to focus!"));
+    if(userInputQ != document.activeElement){
+        focus.style.display = "flex";
+    }
+}, 500);
