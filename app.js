@@ -123,7 +123,7 @@ checkDone = (inputText) => {
     }
 }
 
-blur.addEventListener("click", () => { 
+focus.addEventListener("click", () => { 
     focus.style.display = "none";
     userInput.focus();
     keySound = new sound("audiomass-output.mp3");
