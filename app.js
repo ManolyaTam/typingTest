@@ -19,7 +19,7 @@ let randWrds =
     Woody equal ask saw sir weeks aware decay Entrance prospect removing we packages strictly is no smallest he For hopes may chief get hours day rooms Oh no turned behind polite piqued enough at
     Living valley had silent eat merits esteem bed In last an or went wise as left Visited civilly am demesne so colonel he calling So unreserved do interested increasing sentiments Vanity day giving points within six not law Few impression difficulty his use has comparison decisively`;
 
-randWrds = randWrds.trim().replaceAll('  ', ' ');
+randWrds = randWrds.trim().replaceAll('  ', '');
 let randWrdsArr = randWrds.split(' ');
 addLetters = (word, firstWrd) => {
     let seperated = '';

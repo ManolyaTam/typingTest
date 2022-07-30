@@ -1,8 +1,9 @@
 body{
     font-family: consolas;
-    font-size: 45px;
+    font-size: 50px;
     height: 100vh;
-    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
     background-color: #333438;
     color: #646669;
     z-index: 1;
@@ -10,7 +11,8 @@ body{
 
 
 .contentWrapper{
-    height: 90%;
+    line-height:70px;
+    height: 50%;
     width: auto;
     display: flex;
     align-items: center;
