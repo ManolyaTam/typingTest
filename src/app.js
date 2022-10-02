@@ -2,12 +2,15 @@ let randomTextElement = document.getElementById('randomText');
 let userInput = document.getElementById('userInput');
 let userInputQ = document.querySelector('#userInput');
 let letter = document.getElementsByClassName('letter');
-let popup = document.getElementById('popup');
+let score = document.getElementById('popup');
 let focus = document.getElementById('focus');
 let blur = document.getElementById('blur');
 let acc = document.getElementById('acc');
 let timeElement = document.getElementById('time');
 let wpm = document.getElementById('wpm');
+let firstCursor = document.getElementById('first-cursor');
+
+//random words 
 let randWrds =
     `Doubtful two bed way pleasure confined followed Shew up ye away no eyes life or were this Perfectly did suspicion daughters but his intention Started on society an brought it explain Position two saw greatest stronger old Pianoforte if at simplicity do estimating Up am intention on dependent questions oh elsewhere september No betrayed pleasure possible jointure we in throwing And can event rapid any shall woman green Hope they dear who its bred Smiling nothing affixed he carried it clothes calling he no
     Impossible considered invitation him men instrument saw celebrated unpleasant Put rest and must set kind next many near nayHe exquisite continued explained middleton am Voice hours young woody has she think equal
@@ -19,13 +22,14 @@ let randWrds =
     Woody equal ask saw sir weeks aware decay Entrance prospect removing we packages strictly is no smallest he For hopes may chief get hours day rooms Oh no turned behind polite piqued enough at
     Living valley had silent eat merits esteem bed In last an or went wise as left Visited civilly am demesne so colonel he calling So unreserved do interested increasing sentiments Vanity day giving points within six not law Few impression difficulty his use has comparison decisively`;
 
+// wrapping all letters with span to control styling
 randWrds = randWrds.trim().replaceAll('  ', '');
 let randWrdsArr = randWrds.split(' ');
 addLetters = (word, firstWrd) => {
     let seperated = '';
     let size = word.length;
     for (let i = 0; i < size; i += 1) {
-        if (firstWrd && i === 0)
+        if (firstWrd && i === 0) // first word and first letter
             seperated += `<span class="letter activeLetter">${word[i]}</span>`;
         else
             seperated += `<span class="letter">${word[i]}</span>`;
@@ -34,12 +38,12 @@ addLetters = (word, firstWrd) => {
     return seperated;
 }
 
-
+// generating random text
 words = randWrdsArr.length;
 let chars = '';
-max_number_words = 25;
+max_number_words = 20;
 let randomText = '';
-getRandText = () => {
+const getRandText = () => {
     for (let j = 0; j < max_number_words; j += 1) {
         let i = Math.floor((Math.random() * 100) % (words));
         chars += randWrdsArr[i] + ' ';
@@ -54,25 +58,7 @@ getRandText = () => {
 }
 
 
-// sound
-function sound(src) {
-    this.sound = document.createElement("audio");
-    this.sound.src = src;
-    this.sound.setAttribute("preload", "auto");
-    this.sound.setAttribute("controls", "none");
-    this.sound.style.display = "none";
-    document.body.appendChild(this.sound);
-    this.play = function(){
-      this.sound.play();
-    }
-    this.stop = function(){
-      this.sound.pause();
-    }
-  }
-
-
-
-randomTextElement.innerHTML = ``;
+randomTextElement.innerHTML = '';
 randomTextElement.innerHTML = getRandText();
 
 let start;
@@ -80,12 +66,14 @@ let end;
 let time;
 let wrong = 0;
 checkCorrect = (inputText) => {
-    // keySound.stop();
-    // keySound.play();/////////////////////////////////needs work
+    moveCursor(0);
+    firstCursor.classList.add('stop');
     let i = inputText.length - 1;
+    moveCursor(i);
+    // console.log('i = ', i);
     if (i === 0) {
         start = Date.now();
-        console.log(start);
+        // console.log(start);
     }
     inputChar = inputText[i];
     if (inputChar == chars[i]) {
@@ -114,30 +102,44 @@ checkDone = (inputText) => {
     if (inputText.length === chars.length) {
         end = Date.now()
         time = Math.floor((end - start) / 1000);
-        minutes = time/60
+        minutes = time / 60
         console.log('game over');
-        wpm.innerHTML = Math.floor(max_number_words/(minutes));
-        acc.innerHTML = `${Math.floor(((chars.length - wrong)/chars.length) * 100)}%` ; 
+        wpm.innerHTML = Math.floor(max_number_words / (minutes));
+        acc.innerHTML = `${Math.floor(((chars.length - wrong) / chars.length) * 100)}%`;
         timeElement.innerHTML = (time) + 's';
-        popup.style.display = 'flex';
+        score.style.display = 'flex'; // shows the score 
     }
 }
 
-focus.addEventListener("click", () => { 
-    focus.style.display = "none";
+focus.addEventListener("click", () => {
     userInput.focus();
-    keySound = new sound("audiomass-output.mp3");
+    focus.style.display = 'none';
+    // keySound = new sound("audiomass-output.mp3");
 });
 
-randomTextElement.addEventListener("click", () => { 
+randomTextElement.addEventListener("click", () => {
     focus.style.display = "none";
     userInput.focus();
-    keySound = new sound("audiomass-output.mp3");
+    // keySound focus= new sound("audiomass-output.mp3");
 });
 
 setInterval(() => {
-    console.log((userInputQ === document.activeElement? 'in focus': "click to focus!"));
-    if(userInputQ != document.activeElement){
+
+    // firstCursor.classList.remove('stop');
+    if (userInputQ === document.activeElement) {
+        // console.log('in focus');
+        
+    }
+    else {
+        // console.log("click to focus!")
+        firstCursor.classList.remove('stop');
+    }
+
+    if (userInputQ != document.activeElement) {
         focus.style.display = "flex";
     }
 }, 500);
+
+const moveCursor = (i) => {
+    letter[i].after(firstCursor);
+}

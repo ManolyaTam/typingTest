@@ -3,13 +3,13 @@
 
 <head>
     <title>Typing Test</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="keyboard.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="../keyboard.png" type="image/x-icon">
 </head>
 
 <body>
     <div class="header" style="margin: 30px 30px;">
-        <img src="keyboard.png" alt="icon" style="width: 50px; display: inline; position: relative; top: 10px">
+        <img src="../keyboard.png" alt="icon" style="width: 50px; display: inline; position: relative; top: 10px">
         <h5 style="color: #d1d0c5; display: inline;">Typing Test</h5>
     </div>
     <div class="contentWrapper">
@@ -19,12 +19,13 @@
                     <p>click here to focus</p>
                 </div>
             </div>
-            <p id="randomText"><span class="correct">a</span><span class="wrong">b</span><span>c</span></p>
+            <!-- <span class="correct">a</span><span class="wrong">b</span><span>c</span> -->
+            <p id="idk"><span id="first-cursor" class="i-cursor">&nbsp;</span><span id="randomText"></span></p>
             <input oninput="checkCorrect(this.value)" type="text" name="userInput" id="userInput" class="hiddenInput">
         </div>
     </div>
     <div id="footer">
-        <h2>hello<h2>
+        <h2 style="font-size:25px">hello<h2>
     </div>
     <div class="popup" id="popup">
         <div class="popupContent">

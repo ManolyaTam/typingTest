@@ -1,14 +1,14 @@
 body{
     font-family: consolas;
-    font-size: 50px;
+    font-size: 44px;
     height: 100vh;
     display: flex;
     flex-wrap: wrap;
+    overflow: hidden;
     background-color: #333438;
     color: #646669;
     z-index: 1;
 }
-
 
 .contentWrapper{
     line-height:70px;
@@ -124,9 +124,31 @@ body{
 }
 
 .activeLetter {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 #randomText{
     cursor: pointer;
+}
+
+.i-cursor {
+    display: inline-block;
+    width: 5px;
+    height: 100%;
+    background-color: #e9bb17;
+    animation: blink 1s infinite;
+    font-size: 44px;
+    font-family: consolas;
+    border-radius: 5px;
+    padding: 0;
+}
+
+@keyframes blink {
+    0% {background-color: #e9bb17;}
+    50% {background-color: transparent;}
+    100% {background-color: #e9bb17;}
+}
+
+.i-cursor.stop {
+    animation: none;
 }
