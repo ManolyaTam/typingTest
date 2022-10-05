@@ -105,14 +105,15 @@ const splitQuote = (quote) => {
     let temp = ``;
     for (let i = 0; i < size; i++) {
         let wrdSize = wrds[i].length;
-        if (i == 0) {
+        if (i == 0) { // first word : activeWord and i-cursor
+            // temp += `<span>&nbsp;</span>`
             for (let j = 0; j < wrdSize; j++) {
                 temp += `<span class="letter">${wrds[i][j]}</span>`;
             }
             result += `<span class="word activeWord">${temp}</span><span class="letter"> </span>`;
             temp = ``
         }
-        else if (i === size - 1) {
+        else if (i === size - 1) { // last word : no space in the end
             for (let j = 0; j < wrdSize; j++) {
                 temp += `<span class="letter">${wrds[i][j]}</span>`;
             }
@@ -130,7 +131,7 @@ const splitQuote = (quote) => {
     return result;
 };
 
-// getting a random qupte from Quotes array, then split it into spans and fill it in typingArea 
+// getting a random quote from Quotes array, then split it into spans and fill it in typingArea 
 let rand = Math.floor(Math.random() * (Quotes.length));
 let today_quote = Quotes[rand];
 typingArea.innerHTML = splitQuote(today_quote);
@@ -147,17 +148,17 @@ let wrong = 0;
  * @param {string} inputText
  */
 const checkCorrect = (inputText) => {
-    // moveCursor(0);
-    // firstCursor.classList.add('stop');
+    moveCursor(0);
+    firstCursor.classList.add('stop');
     let i = inputText.length - 1;
-    // moveCursor(i);
+    moveCursor(i);
     // console.log('i = ', i);
     if (i === 0) {
         start = Date.now();
         // console.log(start);
     }
     inputChar = inputText[i];
-    if (inputChar == chars[i]) {
+    if (inputChar == today_quote[i]) {
         letter[i].classList.add("correct");
     }
     else {
@@ -180,13 +181,13 @@ userInput.addEventListener('keydown', (event) => {
 });
 
 checkDone = (inputText) => {
-    if (inputText.length === chars.length) {
+    if (inputText.length === today_quote.length) {
         end = Date.now();
         time = Math.floor((end - start) / 1000);
         minutes = time / 60;
         console.log('game over');
-        wpm.innerHTML = Math.floor(max_number_words / (minutes));
-        acc.innerHTML = `${Math.floor(((chars.length - wrong) / chars.length) * 100)}%`;
+        wpm.innerHTML = Math.floor(today_quote.length / (minutes));
+        acc.innerHTML = `${Math.floor(((today_quote.length - wrong) / today_quote.length) * 100)}%`;
         timeElement.innerHTML = (time) + 's';
         score.style.display = 'flex'; // shows the score
     }
@@ -198,7 +199,7 @@ focus.addEventListener("click", () => {
     // keySound = new sound("audiomass-output.mp3");
 });
 
-randomTextElement.addEventListener("click", () => {
+typingArea.addEventListener("click", () => {
     focus.style.display = "none";
     userInput.focus();
     // keySound focus= new sound("audiomass-output.mp3");
@@ -224,4 +225,3 @@ setInterval(() => {
 const moveCursor = (i) => {
     letter[i].after(firstCursor);
 };
-// hello
