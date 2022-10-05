@@ -26,12 +26,12 @@ body{
 }
 
 .textArea>input{
-    position: absolute;
+    /* position: absolute; */
 }
 
 .hiddenInput{
-    z-index: -10;
-    opacity: 0;
+    /* z-index: -10; */
+    /* opacity: 0; */
 }
 
 .correct {
@@ -151,4 +151,8 @@ body{
 
 .i-cursor.stop {
     animation: none;
+}
+
+.activeWord {
+    white-space: nowrap;
 }
