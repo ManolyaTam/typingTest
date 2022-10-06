@@ -33,14 +33,17 @@ body{
     /* z-index: -10; */
     /* opacity: 0; */
 }
-
-.correct {
-    color: white;
+.letter {
+    margin: 0;
+    padding: 0;
 }
 
-.wrong {
-    background-color: #ed3b3c54;
-    color: white;
+.letter.correct {
+    color: #d0d0c4;
+}
+
+.letter.wrong {
+    color: rgb(249, 69, 69);
 }
 
 .popup {
@@ -94,7 +97,7 @@ body{
     padding-bottom: 0;
 }
 .popupContent>h4{
-    color: #ffffff;
+    color: #d0d0c4;
     margin-bottom: 0;
     padding-bottom: 0;
 }
@@ -134,13 +137,15 @@ body{
 .i-cursor {
     display: inline-block;
     width: 5px;
-    height: 100%;
+    height: 25;
     background-color: #e9bb17;
     animation: blink 1s infinite;
     font-size: 44px;
     font-family: consolas;
     border-radius: 5px;
     padding: 0;
+    position: absolute;
+    transition-delay: 1s;
 }
 
 @keyframes blink {
@@ -154,5 +159,7 @@ body{
 }
 
 .activeWord {
+    padding: 0;
+    margin: 0;
     white-space: nowrap;
 }
