@@ -10,7 +10,8 @@ let timeElement = document.getElementById('time');
 let wpm = document.getElementById('wpm');
 let firstCursor = document.getElementById('first-cursor');
 
-const Quotes = ["If you don't prioritize your life, someone else will.",
+const Quotes = ["It's nice to be important, but it's more important to be nice!",
+    "If you don't prioritize your life, someone else will.",
     "What you seek is seeking you.",
     "Impossible is just a big word thrown around by small men and women who find it easier to live in the world they've been given than to explore the power they have to change it.",
     "The struggle ends when the gratitude begins.",
@@ -111,7 +112,7 @@ const splitQuote = (quote) => {
                 temp += `<span class="letter">${wrds[i][j]}</span>`;
             }
             result += `<span class="word activeWord">${temp}</span><span class="letter"> </span>`;
-            temp = ``
+            temp = ``;
         }
         else if (i === size - 1) { // last word : no space in the end
             for (let j = 0; j < wrdSize; j++) {

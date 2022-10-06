@@ -1,4 +1,5 @@
 body {
+    user-select: none;
     font-family: consolas;
     font-size: 44px;
     height: 100vh;
@@ -11,9 +12,10 @@ body {
 }
 
 .contentWrapper {
+    /* border: 1px solid red; */
     line-height: 70px;
     height: 50%;
-    width: auto;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,7 +50,7 @@ body {
 }
 
 .popup {
-    background-color: rgb(64 64 64 / 9%);
+    background-color: rgb(51 52 56 / 81%);;
     position: absolute;
     height: 100%;
     width: 100%;
@@ -62,14 +64,14 @@ body {
 }
 
 .focus {
+    /* border: 1px dashed white; */
     position: absolute;
-    background-color: rgb(51 52 56 / 82%);
 }
 
 .blur {
     color: #e2b714;
     font-size: 40px;
-
+    /* transition: all 1.25s ease 0s; */
 }
 
 .popupContent {
@@ -173,4 +175,9 @@ body {
     padding: 0;
     margin: 0;
     white-space: nowrap;
+}
+
+.textWrapper{
+    /* border: 1px solid green; */
+    min-width: 70%;
 }

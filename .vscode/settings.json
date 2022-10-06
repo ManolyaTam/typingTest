@@ -2,5 +2,6 @@
     "editor.insertSpaces": true,
     "editor.detectIndentation": false,
     "editor.tabSize": 4,
-    "javascript.format.semicolons": "insert"
+    "javascript.format.semicolons": "insert",
+    "liveServer.settings.port": 5501
 }
