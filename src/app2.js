@@ -33,7 +33,7 @@ const Quotes = ["It's nice to be important, but it's more important to be nice!"
     "Mystery creates wonder and wonder is the basis of our desire to understand.",
     "Every day of our lives, we are on the verge of making those slight changes that would make all the difference.",
     "Not everything that can be counted counts. Not everything that counts can be counted",
-    "Champions aren’t made in the gyms. Champions are made from something they have deep inside them—a desire, a dream, a vision.",
+    "Champions aren't made in the gyms. Champions are made from something they have deep inside them—a desire, a dream, a vision.",
     "Do what you love, not what you think you're supposed to do.",
     "Be thankful for what you have; you'll end up having more. If you concentrate on what you don't have, you will never, ever have enough.",
     "Ask yourself, who do you want to be? Figure out for yourself what makes you happy, no matter how crazy it may sound to other people.",
@@ -67,7 +67,7 @@ const Quotes = ["It's nice to be important, but it's more important to be nice!"
     "Forget all the reasons why it won't work and believe the one reason why it will.",
     "I have had lots of troubles in my life, most of which never happened.",
     "You have power over your mind, not outside events. Realize this, and you will find strength.",
-    "You don’t learn to walk by following rules. You learn by doing, and by falling over.",
+    "You don't learn to walk by following rules. You learn by doing, and by falling over.",
     "Excuses are the rocks where our dreams are crushed.",
     "Always be yourself, express yourself, have faith in yourself. Do not go out and look for a successful personality and duplicate it.",
     "Time you enjoy wasting is not wasted time.",
@@ -159,6 +159,7 @@ const checkCorrect = (inputText) => {
         // console.log(start);
     }
     inputChar = inputText[i];
+    console.log('[i]', today_quote[i]);
     if (inputChar == today_quote[i]) {
         letter[i].classList.add("correct");
     }
