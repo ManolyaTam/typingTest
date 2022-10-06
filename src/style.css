@@ -1,4 +1,4 @@
-body{
+body {
     font-family: consolas;
     font-size: 44px;
     height: 100vh;
@@ -10,8 +10,8 @@ body{
     z-index: 1;
 }
 
-.contentWrapper{
-    line-height:70px;
+.contentWrapper {
+    line-height: 70px;
     height: 50%;
     width: auto;
     display: flex;
@@ -25,14 +25,15 @@ body{
     padding: 10px
 }
 
-.textArea>input{
-    /* position: absolute; */
+.textArea>input {
+    position: absolute;
 }
 
-.hiddenInput{
-    /* z-index: -10; */
-    /* opacity: 0; */
+.hiddenInput {
+    z-index: -10;
+    opacity: 0;
 }
+
 .letter {
     margin: 0;
     padding: 0;
@@ -60,14 +61,15 @@ body{
     align-items: center;
 }
 
-.focus{
+.focus {
     position: absolute;
     background-color: rgb(51 52 56 / 82%);
 }
-.blur{
+
+.blur {
     color: #e2b714;
     font-size: 40px;
-    
+
 }
 
 .popupContent {
@@ -96,11 +98,13 @@ body{
     margin-bottom: 0;
     padding-bottom: 0;
 }
-.popupContent>h4{
+
+.popupContent>h4 {
     color: #d0d0c4;
     margin-bottom: 0;
     padding-bottom: 0;
 }
+
 .stats {
     display: flex;
 }
@@ -130,7 +134,7 @@ body{
     text-decoration: none;
 }
 
-#randomText{
+#randomText {
     cursor: pointer;
 }
 
@@ -145,20 +149,27 @@ body{
     border-radius: 5px;
     padding: 0;
     position: absolute;
-    transition-delay: 1s;
 }
 
 @keyframes blink {
-    0% {background-color: #e9bb17;}
-    50% {background-color: transparent;}
-    100% {background-color: #e9bb17;}
+    0% {
+        background-color: #e9bb17;
+    }
+
+    50% {
+        background-color: transparent;
+    }
+
+    100% {
+        background-color: #e9bb17;
+    }
 }
 
 .i-cursor.stop {
     animation: none;
 }
 
-.activeWord {
+.word {
     padding: 0;
     margin: 0;
     white-space: nowrap;
