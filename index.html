@@ -24,7 +24,7 @@
                 <span id="first-cursor" class="i-cursor">&nbsp;</span>
                 <span id="randomText"></span>
             </div>
-            <input oninput="checkCorrect(this.value)" type="text" name="userInput" id="userInput" class="hiddenInput">
+            <input oninput="if(!checkDone(this.value))checkCorrect(this.value)" type="text" name="userInput" id="userInput" class="hiddenInput">
         </div>
     </div>
     <div id="footer">
